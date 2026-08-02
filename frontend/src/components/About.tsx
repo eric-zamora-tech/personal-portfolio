@@ -78,7 +78,7 @@ function About() {
                         </div>
                     </div>
                 </div>
-                <div className="col-auto mx-auto ms-lg-auto ">
+                <div className="col-auto mx-auto mx-lg-0 ms-lg-auto ">
                     {/* ===== PROFILE PICTURE ===== */}
                     <div className="card rounded-4 overflow-hidden">
                         <div className="card-img-top d-flex justify-content-center" style={{ maxWidth: '320px', height: '390px' }}>
