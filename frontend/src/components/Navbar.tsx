@@ -9,11 +9,11 @@ function Navbar() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     const navLinks: string[] = [
-        "about",
-        "projects",
-        "skills",
-        "experience",
-        "contact"
+        "about"
+        // "projects",
+        // "skills",
+        // "experience",
+        // "contact"
     ];
 
     useEffect(() => {
