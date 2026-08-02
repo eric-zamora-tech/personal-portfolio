@@ -17,8 +17,8 @@ function About() {
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-7">
+            <div className="row row-gap-4">
+                <div className="col-lg-7">
                     {/* ===== ROLE ===== */}
                     <h6 className="fw-light text-body-secondary font-monospace mb-3" style={{ letterSpacing: '2px' }}>Full Stack Software Engineer</h6>
                     {/* ===== NAME ===== */}
@@ -29,22 +29,22 @@ function About() {
                     {/* ===== CAPTION ===== */}
                     <p className="fs-5 mb-5">I build full-stack applications using C#, ASP.NET Core, React, SQL Server, and Azure. I enjoy creating software that's maintainable, scalable, and solves real business problems.</p>
                     {/* ===== SOCIAL LINKS ===== */}
-                    <div className="hstack gap-3 mb-5">
-                        <a className="btn btn-outline-primary px-3 font-monospace" href="https://github.com/eric-zamora-tech" target="_blank">
+                    <div className="hstack flex-wrap gap-3 mb-5">
+                        <a className="btn btn-outline-primary px-3 font-monospace flex-grow-1 flex-lg-grow-0" href="https://github.com/eric-zamora-tech" target="_blank">
                             <i className="bi bi-github me-2" style={{ fontSize: '15px' }}></i>
                             <span className="small">GitHub</span>
                         </a>
-                        <a className="btn btn-outline-primary px-3 font-monospace" href="https://www.linkedin.com/in/eric-zamora-tech/" target="_blank">
+                        <a className="btn btn-outline-primary px-3 font-monospace flex-grow-1 flex-lg-grow-0" href="https://www.linkedin.com/in/eric-zamora-tech/" target="_blank">
                             <i className="bi bi-linkedin me-2" style={{ fontSize: '15px' }}></i>
                             <span className="small">LinkedIn</span>
                         </a>
-                        <a className="btn btn-outline-primary px-3 font-monospace" href="Eric Zamora_Fullstack Software Engineer_Resume.pdf" download>
-                            <i className="bi bi-file-earmark-text me-2" style={{ fontSize: '15px' }}></i>
-                            <span className="small">Resume</span>
-                        </a>
-                        <a className="btn btn-outline-primary px-3 font-monospace" href="mailto:eric.zamora.in@gmail.com">
+                        <a className="btn btn-outline-primary px-3 font-monospace flex-grow-1 flex-lg-grow-0" href="mailto:eric.zamora.in@gmail.com">
                             <i className="bi bi-envelope me-2" style={{ fontSize: '15px' }}></i>
                             <span className="small">Email</span>
+                        </a>
+                        <a className="btn btn-outline-primary px-3 font-monospace flex-grow-1 flex-lg-grow-0" href="Eric Zamora_Fullstack Software Engineer_Resume.pdf" download>
+                            <i className="bi bi-file-earmark-text me-2" style={{ fontSize: '15px' }}></i>
+                            <span className="small">Resume</span>
                         </a>
                     </div>
                     {/* ===== SATISTICS ===== */}
@@ -78,10 +78,10 @@ function About() {
                         </div>
                     </div>
                 </div>
-                <div className="col-auto ms-auto">
+                <div className="col-auto mx-auto ms-lg-auto ">
                     {/* ===== PROFILE PICTURE ===== */}
                     <div className="card rounded-4 overflow-hidden">
-                        <div className="card-img-top d-flex justify-content-center" style={{ maxWidth: '320px', height: '400px' }}>
+                        <div className="card-img-top d-flex justify-content-center" style={{ maxWidth: '320px', height: '390px' }}>
                             <img className="h-100" src="profile-picture.jpg" />
                         </div>
                         <div className="card-body p-0">

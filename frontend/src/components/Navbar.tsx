@@ -9,11 +9,11 @@ function Navbar() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     const navLinks: string[] = [
-        "about"
-        // "projects",
-        // "skills",
-        // "experience",
-        // "contact"
+        "about",
+        "projects",
+        "skills",
+        "experience",
+        "contact"
     ];
 
     useEffect(() => {
@@ -37,10 +37,10 @@ function Navbar() {
                     <span className="font-monospace fw-medium">ericzamora</span>
                     <span className="font-monospace text-body-tertiary fw-medium">.dev</span>
                 </div>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse flex-grow-0">
+                <div className="collapse navbar-collapse flex-grow-0 py-3 py-lg-0" id="mobileNavbar">
                     <ul className="navbar-nav gap-2">
                         {
                             navLinks.map(link => {
@@ -48,6 +48,14 @@ function Navbar() {
                             })
                         }
                     </ul>
+                    <div className="d-block d-lg-none">
+                        <div className="hstack gap-2 justify-content-end">
+                            <i className={`bi ${theme === 'light' ? "bi-brightness-high-fill text-warning" : "bi-moon-fill text-warning"}`}></i>
+                            <div className="form-check form-check-reverse form-switch">
+                                <input className="form-check-input" checked={theme === 'light' ? false : true} type="checkbox" role="switch" id="themeToggler" onClick={toggleTheme} />
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="collapse navbar-collapse flex-grow-0 hstack gap-3">
                     <div className="hstack gap-3">
