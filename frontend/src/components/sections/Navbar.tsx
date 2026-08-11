@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
-import NavLink from "./NavLink";
-import { useTheme } from "../ThemeContext";
+import NavLink from "../NavLink";
+import Button from "../Button";
+import ThemeToggler from "../ThemeToggler";
 
 function Navbar() {
-    const { theme, toggleTheme } = useTheme();
-
     const [activeHref, setActiveHref] = useState<string>('#about');
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     const navLinks: string[] = [
-        "about"
+        "about",
         // "projects",
-        // "skills",
-        // "experience",
+        "skills",
+        "experience"
         // "contact"
     ];
 
@@ -28,6 +27,7 @@ function Navbar() {
     return (
         <nav className={`navbar navbar-expand-lg sticky-top py-3 bg-body ${isScrolled ? "border-bottom border-cream" : ""}`} style={{ marginBottom: '75px' }}>
             <div className="container hstack justify-content-between">
+                {/* ===== LOGO & NAME ===== */}
                 <div className="hstack gap-3">
                     <div className="ratio ratio-1x1" style={{ width: '25px' }}>
                         <div className="bg-primary text-white hstack justify-content-center rounded-1 fw-medium" style={{ fontSize: '12px' }}>
@@ -37,37 +37,33 @@ function Navbar() {
                     <span className="font-monospace fw-medium">ericzamora</span>
                     <span className="font-monospace text-body-tertiary fw-medium">.dev</span>
                 </div>
+                {/* ===== MOBILE NAV TOGGLER ===== */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse flex-grow-0 py-3 py-lg-0" id="mobileNavbar">
+                    {/* ===== MOBILE NAV LINKS ===== */}
                     <ul className="navbar-nav gap-2">
                         {
                             navLinks.map(link => {
-                                return <NavLink href={`#${link}`} isActive={activeHref == `#${link}`} onClick={() => setActiveHref(`#${link}`)}>{link}</NavLink>
+                                return <NavLink key={link} href={`#${link}`} isActive={activeHref == `#${link}`} onClick={() => setActiveHref(`#${link}`)}>{link}</NavLink>
                             })
                         }
                     </ul>
-                    <div className="d-block d-lg-none">
-                        <div className="hstack gap-2 justify-content-end">
-                            <i className={`bi ${theme === 'light' ? "bi-brightness-high-fill text-warning" : "bi-moon-fill text-warning"}`}></i>
-                            <div className="form-check form-check-reverse form-switch">
-                                <input className="form-check-input" checked={theme === 'light' ? false : true} type="checkbox" role="switch" id="themeToggler" onClick={toggleTheme} />
-                            </div>
-                        </div>
+                    {/* ===== MOBILE THEME TOGGLER ===== */}
+                    <div className="d-block d-lg-none mt-4">
+                        <ThemeToggler />
                     </div>
                 </div>
                 <div className="collapse navbar-collapse flex-grow-0 hstack gap-3">
-                    <div className="hstack gap-3">
-                        <i className={`bi ${theme === 'light' ? "bi-brightness-high-fill text-warning" : "bi-moon-fill text-warning"}`}></i>
-                        <div className="form-check form-check-reverse form-switch">
-                            <input className="form-check-input" checked={theme === 'light' ? false : true} type="checkbox" role="switch" id="themeToggler" onClick={toggleTheme} />
-                        </div>
-                    </div>
-                    <a className="btn btn-outline-primary px-3 py-1 font-monospace" href="Eric Zamora_Fullstack Software Engineer_Resume.pdf" download>
+                    {/* ===== THEME TOGGLER ===== */}
+                    <ThemeToggler />
+
+                    {/* ===== DOWNLOAD RESUME ===== */}
+                    <Button className="btn-outline-primary" href="Eric Zamora_Fullstack Software Engineer_Resume.pdf">
                         <span className="small">Resume</span>
                         <i className="bi bi-download ms-2" style={{ fontSize: '15px' }}></i>
-                    </a>
+                    </Button>
                 </div>
             </div>
         </nav>

@@ -2,6 +2,9 @@
     --cream: #fbfaf7;
     --cream-rgb: 251, 250, 247;
 
+    --cream-subtle: #f4f2ec;
+    --cream-subtle-rgb: 244, 242, 236;
+
     --cream-dark: hsl(from var(--cream) h calc(s - 20) calc(l - 15));
     --cream-dark-rgb: rgb(from var(--cream-dark) r g b);
 
@@ -25,6 +28,9 @@
     --bs-secondary-bg: var(--bs-white);
     --bs-secondary-bg-rgb: var(--bs-white-rgb);
 
+    --bs-tertiary-bg: var(--cream-subtle);
+    --bs-tertiary-bg-rgb: var(--cream-subtle-rgb);
+
     --bs-primary: var(--forest-green);
     --bs-primary-rgb: var(--forest-green-rgb);
 
@@ -43,10 +49,23 @@
     --bs-primary-rgb: var(--lime-green-rgb);
 }
 
+html {
+    scroll-padding-top: 80px;
+}
+
 body {
     font-family: "Inter", sans-serif;
     background-image: radial-gradient(circle at 1px 1px, rgba(var(--bs-body-color-rgb), .1) 1px, transparent 0);
     background-size: 22px 22px;
+}
+
+.text-decoration-underline {
+    text-decoration-thickness: 2px !important;
+}
+
+.progress {
+    --bs-progress-bar-bg: var(--bs-primary);
+    --bs-progress-bg: var(--bs-tertiary-bg) !important;
 }
 
 .btn-outline-primary {
@@ -57,6 +76,22 @@ body {
     --bs-btn-hover-border-color: var(--bs-primary);
     --bs-btn-active-bg: var(--bs-primary);
     --bs-btn-active-border-color: var(--bs-primary);
+}
+
+.btn-link {
+    --bs-btn-font-weight: 400;
+    --bs-btn-color: var(--bs-tertiary-color);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: var(--bs-primary);
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: var(--bs-primary);
+    --bs-btn-active-border-color: transparent;
+    --bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-border-color: transparent;
+    --bs-btn-box-shadow: 0 0 0 #000;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    text-decoration: none;
 }
 
 .btn-outline-primary:hover {
@@ -107,4 +142,58 @@ body {
 
 .container {
     max-width: 72rem;
+}
+
+.experience:has(+.experience) {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(var(--bs-body-color-rgb), 0.25);
+}
+
+@media screen and (min-width: 992px) {
+    .row.row-cols-lg-3>.col:not(:first-child)>.card {
+        border-top-left-radius: 0;
+    }
+
+    .row.row-cols-lg-3>.col:not(:nth-child(3n):not(:has(+.col + .col + .col)), :last-child)>.card {
+        border-bottom-right-radius: 0;
+    }
+
+    .row.row-cols-lg-3>.col:nth-child(-n + 2):has(+ .col)>.card,
+    .row.row-cols-lg-3>.col:nth-child(n + 4)>.card {
+        border-top-right-radius: 0;
+    }
+
+    .row.row-cols-lg-3>.col:not(:nth-child(3n+1):nth-last-child(-n+3))>.card {
+        border-bottom-left-radius: 0;
+    }
+
+    .row.row-cols-lg-3>.col+.col:not(:nth-child(3n+1))>.card {
+        border-left: 0;
+    }
+
+    .row.row-cols-lg-3>.col:nth-child(n+4)>.card {
+        border-top: 0;
+    }
+
+    .mb-6 {
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mb-6 {
+        margin-bottom: 50px;
+    }
+
+    .row.row-cols-1>.col:not(:first-child)>.card {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+    }
+
+    .row.row-cols-1>.col:not(:last-child)>.card {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
